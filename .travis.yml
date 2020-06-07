@@ -1,0 +1,11 @@
+# requires root permissions
+sudo: required
+# install docker inside container
+services:
+  - docker
+# to be done before running any test or before deployment
+before_install:
+  - docker build -t manishjuriani/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run manishjuriani/docker-react npm run test -- --coverage
