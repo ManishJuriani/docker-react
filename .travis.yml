@@ -6,11 +6,11 @@ services:
 # to be done before running any test or before deployment
 # putting together the initial image
 before_install:
-  - docker build -t ManishJuriani/docker-react -f Dockerfile.dev .
+  - docker build -t manishjuriani/docker-react -f Dockerfile.dev .
 
 # to run tests for the initial image
 script:
-  - docker run -e CI=true ManishJuriani/docker-react npm run test -- --coverage
+  - docker run -e CI=true manishjuriani/docker-react npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
