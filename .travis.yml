@@ -5,6 +5,8 @@ services:
   - docker
 # to be done before running any test or before deployment
 # putting together the initial image
+# using development version of Dockerfile for testing since production
+#  dockerfile contains only things essential for production
 before_install:
   - docker build -t manishjuriani/docker-react -f Dockerfile.dev .
 
@@ -22,4 +24,5 @@ deploy:
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: "$AWS_SECRET_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
